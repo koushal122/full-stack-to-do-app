@@ -1,26 +1,42 @@
 package com.koushal.todolistapplication.Data;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
 public class TodoTask {
+
+    @Id
+    @GeneratedValue
     private long id;
     private String username;
     //here we have added a simple min length validation, like this we have many validations
     @Size(min = 10,message = "Enter at least 10 character")
     private String description;
+    private String title;
     private boolean isDone;
     private LocalDate targetDate;
 
-    public TodoTask(long id, String username, String description, boolean isDone,LocalDate target) {
+    public TodoTask(){}
+
+    public TodoTask(long id, String username,String title, String description, boolean isDone,LocalDate target) {
         this.id = id;
         this.username = username;
         this.description = description;
         this.isDone = isDone;
         this.targetDate=target;
+        this.title=title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     @Override
@@ -29,9 +45,14 @@ public class TodoTask {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", description='" + description + '\'' +
-                ", isDone=" + isDone + '\'' +
+                ", title='" + title + '\'' +
+                ", isDone=" + isDone +
                 ", targetDate=" + targetDate +
                 '}';
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public LocalDate getTargetDate() {
@@ -70,7 +91,7 @@ public class TodoTask {
         return isDone;
     }
 
-    public void setDone(boolean done) {
+    public void setIsDone(boolean done) {
         isDone = done;
     }
 
