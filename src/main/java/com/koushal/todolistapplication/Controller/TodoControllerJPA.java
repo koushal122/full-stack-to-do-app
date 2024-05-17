@@ -2,7 +2,6 @@ package com.koushal.todolistapplication.Controller;
 
 import com.koushal.todolistapplication.Data.TodoTask;
 import com.koushal.todolistapplication.Repository.TodoRepository;
-import com.koushal.todolistapplication.Services.TodoService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
