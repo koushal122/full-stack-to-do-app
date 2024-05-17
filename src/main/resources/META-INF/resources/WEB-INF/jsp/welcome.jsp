@@ -18,8 +18,10 @@
                </tr>
            </thead>
            <tbody>
+               <!-- here todos is coming from models and var means what we are naming one object i.e. todo in this case -->
                <c:forEach items="${todos}" var="todo">
                    <tr>
+                       <!--because here we are using spring framework to manage the object so this arguement should be same as arguement name in class -->
                        <td>${todo.title}</td>
                        <td>${todo.description}</td>
                        <td>${todo.targetDate}</td>
